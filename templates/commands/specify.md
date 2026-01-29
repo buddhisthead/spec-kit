@@ -27,6 +27,12 @@ The text the user typed after `/speckit.specify` in the triggering message **is*
 
 Given that feature description, do this:
 
+0. **Load Lessons Context** (if available):
+   - Check if `memory/lessons.md` exists in the repository
+   - If it exists, read the file and filter for lessons with categories: `architecture`, `documentation`
+   - Keep relevant lessons in mind when writing the specification to avoid repeating past mistakes
+   - You may reference applied lessons in the spec (e.g., "Per L007: ...")
+
 1. **Generate a concise short name** (2-4 words) for the branch:
    - Analyze the feature description and extract the most meaningful keywords
    - Create a 2-4 word short name that captures the essence of the feature

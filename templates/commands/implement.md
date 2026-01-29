@@ -15,6 +15,12 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Outline
 
+0. **Load Lessons Context** (if available):
+   - Check if `memory/lessons.md` exists in the repository
+   - If it exists, read the file and filter for lessons with categories: `code-quality`, `security`, `testing`
+   - Keep relevant lessons in mind during implementation to avoid repeating past mistakes
+   - Apply lessons proactively (e.g., if L007 says "check CLI dependencies", do that in your code)
+
 1. Run `{SCRIPT}` from repo root and parse FEATURE_DIR and AVAILABLE_DOCS list. All paths must be absolute. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
 
 2. **Check checklists status** (if FEATURE_DIR/checklists/ exists):

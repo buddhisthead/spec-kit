@@ -267,12 +267,22 @@ Additional commands for enhanced quality and validation:
 | `/speckit.clarify`   | Clarify underspecified areas (recommended before `/speckit.plan`; formerly `/quizme`)                                                |
 | `/speckit.analyze`   | Cross-artifact consistency & coverage analysis (run after `/speckit.tasks`, before `/speckit.implement`)                             |
 | `/speckit.checklist` | Generate custom quality checklists that validate requirements completeness, clarity, and consistency (like "unit tests for English") |
+| `/speckit.feedback`  | Extract and store lessons learned from PR review comments for future reference                                                       |
 
 ### Environment Variables
 
 | Variable          | Description                                                                                                                                                                                                                                                                                            |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `SPECIFY_FEATURE` | Override feature detection for non-Git repositories. Set to the feature directory name (e.g., `001-photo-albums`) to work on a specific feature when not using Git branches.<br/>\*\*Must be set in the context of the agent you're working with prior to using `/speckit.plan` or follow-up commands. |
+
+### Lessons Learned
+
+Spec-kit implements a continuous improvement system that captures lessons from PR reviews and applies them to future development work. The `/speckit.feedback` command extracts insights from code review comments and stores them in two places:
+
+- **`memory/lessons.md`** - Central lessons database organized by category (architecture, code-quality, testing, security, performance, documentation)
+- **`memory/feedback/pr-<number>-lessons.md`** - Per-PR detailed feedback summaries that preserve the full context of each review
+
+When you run `/speckit.specify`, `/speckit.plan`, or `/speckit.implement`, these commands automatically load relevant lessons from the central database for their phase and apply them proactively. This creates a compounding knowledge effect where your team's collective wisdom from past reviews continuously improves future implementations, helping avoid repeated mistakes and reinforcing best practices without manual intervention.
 
 ## 📚 Core Philosophy
 
@@ -401,7 +411,7 @@ The first step should be establishing your project's governing principles using 
 /speckit.constitution Create principles focused on code quality, testing standards, user experience consistency, and performance requirements. Include governance for how these principles should guide technical decisions and implementation choices.
 ```
 
-This step creates or updates the `.specify/memory/constitution.md` file with your project's foundational guidelines that the AI agent will reference during specification, planning, and implementation phases.
+This step creates or updates the `memory/constitution.md` file with your project's foundational guidelines that the AI agent will reference during specification, planning, and implementation phases.
 
 ### **STEP 2:** Create project specifications
 
