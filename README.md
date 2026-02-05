@@ -441,6 +441,11 @@ see yours. You can edit any comments that you make, but you can't edit comments 
 delete any comments that you made, but you can't delete comments anybody else made.
 ```
 
+You can mention a number of issue in your description and it will be used to generate the branch number, such as
+```text
+For GH issue #123, Develop BugZapper, a new fuzzy test framework".
+```
+
 After this prompt is entered, you should see Claude Code kick off the planning and spec drafting process. Claude Code will also trigger some of the built-in scripts to set up the repository.
 
 Once this step is completed, you should have a new branch created (e.g., `001-create-taskify`), as well as a new specification in the `specs/001-create-taskify` directory.
