@@ -27,6 +27,12 @@ The text the user typed after `/speckit.specify` in the triggering message **is*
 
 Given that feature description, do this:
 
+0. **Load Lessons Context** (if available):
+   - Check if `memory/lessons.md` exists in the repository
+   - If it exists, read the file and filter for lessons with categories: `architecture`, `documentation`
+   - Keep relevant lessons in mind when writing the specification to avoid repeating past mistakes
+   - You may reference applied lessons in the spec (e.g., "Per L007: ...")
+
 1. **Generate a concise short name** (2-4 words) for the branch:
    - Analyze the feature description and extract the most meaningful keywords
    - Create a 2-4 word short name that captures the essence of the feature
@@ -55,7 +61,8 @@ Given that feature description, do this:
    c. Determine the next available number:
       - Extract all numbers from all three sources
       - Find the highest number N
-      - Use N+1 for the new branch number
+      - Use N+1 for the default new branch number
+      - Examine User Input for any explicit number provided by the user (e.g., "number 5", "N=5", "issue number 5", or "GH issue #5", or "issue #5") and if found, use that instead of N+1 for the new branch number
 
    d. Run the script `{SCRIPT}` with the calculated number and short-name:
       - Pass `--number N+1` and `--short-name "your-short-name"` along with the feature description

@@ -26,6 +26,12 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Outline
 
+0. **Load Lessons Context** (if available):
+   - Check if `memory/lessons.md` exists in the repository
+   - If it exists, read the file and filter for lessons with categories: `architecture`, `testing`, `performance`
+   - Keep relevant lessons in mind when creating the technical plan to avoid repeating past mistakes
+   - You may reference applied lessons in the plan (e.g., "Per L003: ...")
+
 1. **Setup**: Run `{SCRIPT}` from repo root and parse JSON for FEATURE_SPEC, IMPL_PLAN, SPECS_DIR, BRANCH. For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
 
 2. **Load context**: Read FEATURE_SPEC and `/memory/constitution.md`. Load IMPL_PLAN template (already copied).
